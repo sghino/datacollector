@@ -178,6 +178,12 @@ public enum MysqlType {
       return toJsonStringField(value);
     }
   },
+  BINARY("binary") {
+    @Override
+    public Field toField(Object value) {
+      return Field.create(Type.BYTE_ARRAY, value);
+    }
+  },
   UNSUPPORTED("unsupported") {
     @Override
     public Field toField(Object value) {
